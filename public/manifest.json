@@ -1,5 +1,5 @@
 {
-  "short_name": "Add To Home Screen",
+  "short_name": "Add Group Buy To Home Screen",
   "name": "Create React App Sample",
   "icons": [
     {
@@ -8,9 +8,9 @@
       "type": "image/png"
     },
     {
-      "src": "splashscreen.png",
-      "sizes" : "512x512",
-      "type":"image/png"
+      "src": "splash.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": "/?utm_source=homescreen",
