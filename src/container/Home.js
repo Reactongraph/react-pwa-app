@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HomeLogo from '../images/home_logo.png';
 
 export default function Home() {
@@ -11,9 +12,9 @@ export default function Home() {
               <img src={HomeLogo} />
             </div>
             <h2>buy in group and take huge discount on amazing products</h2>
-            <button className="default_btn" type="button">
-              EXPLORE DEALS
-            </button>
+            {/* <button className="default_btn" type="button"> */}
+            <Link to="/productList">EXPLORE DEALS</Link>
+            {/* </button> */}
           </div>
         </div>
       </div>
