@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && yarn build-sw && yarn clean-cra-sw",
+    "build": "react-scripts build && npm run build-sw && npm run clean-cra-sw",
     "clean-cra-sw": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
     "build-sw": "node ./src/sw-build.js",
     "test": "react-scripts test",
