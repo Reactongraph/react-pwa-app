@@ -89,8 +89,8 @@ function askForNotificationPermission() {
       console.log('No notification persmission granted');
     } else {
       console.log('Successfully granted');
-      document.getElementById('enable-notification').style.display =
-        'inline-block';
+      // document.getElementById('enable-notification').style.display =
+      //   'inline-block';
       // configurePushSub();
       displayConfirmNotification();
     }
@@ -147,9 +147,6 @@ function registerValidSW(swUrl, config) {
                 // console.log('gggggggggggggg');
                 for (let i = 0; i < 1; i++) {
                   // console.log('-------enterrrr-------');
-
-                  document.getElementById('enable-notification').style.display =
-                    'inline-block';
                   document
                     .getElementById('enable-notification')
                     .addEventListener('click', askForNotificationPermission);
