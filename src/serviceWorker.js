@@ -177,6 +177,15 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
+      if ('Notification' in window) {
+        console.log('Notification');
+        for (let i = 0; i < 1; i++) {
+          // console.log('-------enterrrr-------');
+          document
+            .getElementById('enable-notification')
+            .addEventListener('click', askForNotificationPermission);
+        }
+      }
     })
     .catch(error => {
       console.error('Error during service worker registration:', error);
