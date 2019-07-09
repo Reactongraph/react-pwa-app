@@ -24,12 +24,13 @@ let enableNotification = document.getElementsByClassName('enable-notification');
 // console.log('@@@@@@@@@@@@@@@@@@@@@', enableNotification);
 
 export function register(config) {
-  // console.log('>>>>>>>>>>>>Before Registering<<<<<<<<<<<<<<<<<<<<');
+  console.log('>>>>>>>>>>>>Before Registering<<<<<<<<<<<<<<<<<<<<');
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-    // console.log('>>>>>>>>>>>>Production<<<<<<<<<<<<<<<<<<<<');
+    console.log('>>>>>>>>>>>>Production<<<<<<<<<<<<<<<<<<<<');
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
+      console.log('ffffffffffffffff');
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
@@ -49,14 +50,24 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          // console.log('Hellooooooooooooooooooooooo');
+          console.log('Hellooooooooooooooooooooooo');
+          if ('Notification' in window) {
+            // console.log('gggggggggggggg');
+            for (let i = 0; i < 1; i++) {
+              // console.log('-------enterrrr-------');
+              document
+                .getElementById('enable-notification')
+                .addEventListener('click', askForNotificationPermission);
+            }
+          }
+          console.log('Hellooooooooooooooooooooooo');
           console.log(
             'This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://bit.ly/CRA-PWA'
           );
         });
       } else {
-        // console.log('yyyyyyyyyyyyyyyyyyyyyy');
+        console.log('Not localhost');
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
@@ -116,9 +127,13 @@ function askForNotificationPermission() {
 // }
 
 function registerValidSW(swUrl, config) {
+  console.log('Enter to register');
+
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
+      console.log('registerrrrrrrrrrr');
+
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
