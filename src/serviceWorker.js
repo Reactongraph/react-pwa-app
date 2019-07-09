@@ -20,6 +20,9 @@ const isLocalhost = Boolean(
     )
 );
 
+let enableNotification = document.getElementsByClassName('enable-notification');
+// console.log('@@@@@@@@@@@@@@@@@@@@@', enableNotification);
+
 export function register(config) {
   // console.log('>>>>>>>>>>>>Before Registering<<<<<<<<<<<<<<<<<<<<');
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -34,6 +37,8 @@ export function register(config) {
     }
 
     window.addEventListener('load', () => {
+      // console.log('======Here=======', isLocalhost);
+
       // const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
       const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 
@@ -44,18 +49,84 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
+          // console.log('Hellooooooooooooooooooooooo');
+
+          if ('Notification' in window) {
+            // console.log('gggggggggggggg');
+            for (let i = 0; i < 1; i++) {
+              // console.log('-------enterrrr-------');
+
+              document.getElementById('enable-notification').style.display =
+                'inline-block';
+              document
+                .getElementById('enable-notification')
+                .addEventListener('click', askForNotificationPermission);
+            }
+          }
           console.log(
             'This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://bit.ly/CRA-PWA'
           );
         });
-      } else {  
+      } else {
+        // console.log('yyyyyyyyyyyyyyyyyyyyyy');
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
     });
   }
 }
+
+function displayConfirmNotification() {
+  if ('serviceWorker' in navigator) {
+    let options = {
+      body: 'You successfully subscribed my Notification service',
+      image: '/src/container/images/icon.png',
+      dir: 'rtl',
+      vibrate: [100, 50, 200],
+      tag: 'confirm-notification',
+      renotify: true
+    };
+    navigator.serviceWorker.ready.then(function(swreg) {
+      swreg.showNotification('Successfully notified from (SWREG)', options);
+    });
+  }
+}
+
+function askForNotificationPermission() {
+  // console.log('Clickeddddddddddddddddddddddd');
+
+  Notification.requestPermission(function(result) {
+    console.log('User Choice', result);
+    if (result !== 'granted') {
+      console.log('No notification persmission granted');
+    } else {
+      console.log('Successfully granted');
+      document.getElementById('enable-notification').style.display =
+        'inline-block';
+      // configurePushSub();
+      displayConfirmNotification();
+    }
+  });
+}
+
+// function configurePushSub() {
+//   if (!('serverWorker' in navigator)) {
+//     return;
+//   }
+
+//   navigator.serviceWorker.ready
+//     .then(function(swreg) {
+//       return swreg.pushManager.getSubscription();
+//     })
+//     .then(function(sub) {
+//       if (sub === null) {
+//         // Create subscription
+//       } else {
+//         // We have subscription
+//       }
+//     });
+// }
 
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker

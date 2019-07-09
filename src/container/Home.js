@@ -15,6 +15,9 @@ export default function Home() {
             {/* <button className="default_btn" type="button"> */}
             <Link to="/productList">EXPLORE DEALS</Link>
             {/* </button> */}
+            <button id="enable-notification" className="notify-btn">
+              Enable notification
+            </button>
           </div>
         </div>
       </div>
