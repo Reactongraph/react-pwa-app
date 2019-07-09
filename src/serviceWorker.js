@@ -24,13 +24,13 @@ let enableNotification = document.getElementsByClassName('enable-notification');
 // console.log('@@@@@@@@@@@@@@@@@@@@@', enableNotification);
 
 export function register(config) {
-  console.log('>>>>>>>>>>>>Before Registering<<<<<<<<<<<<<<<<<<<<');
+  // console.log('>>>>>>>>>>>>Before Registering<<<<<<<<<<<<<<<<<<<<');
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-    console.log('>>>>>>>>>>>>Production<<<<<<<<<<<<<<<<<<<<');
+    // console.log('>>>>>>>>>>>>Production<<<<<<<<<<<<<<<<<<<<');
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
-      console.log('ffffffffffffffff');
+      // console.log('ffffffffffffffff');
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
@@ -50,7 +50,7 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          console.log('Hellooooooooooooooooooooooo');
+          // console.log('Hellooooooooooooooooooooooo');
           if ('Notification' in window) {
             // console.log('gggggggggggggg');
             for (let i = 0; i < 1; i++) {
@@ -60,14 +60,14 @@ export function register(config) {
                 .addEventListener('click', askForNotificationPermission);
             }
           }
-          console.log('Hellooooooooooooooooooooooo');
+          // console.log('Hellooooooooooooooooooooooo');
           console.log(
             'This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://bit.ly/CRA-PWA'
           );
         });
       } else {
-        console.log('Not localhost');
+        // console.log('Not localhost');
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
@@ -95,11 +95,11 @@ function askForNotificationPermission() {
   // console.log('Clickeddddddddddddddddddddddd');
 
   Notification.requestPermission(function(result) {
-    console.log('User Choice', result);
+    // console.log('User Choice', result);
     if (result !== 'granted') {
       console.log('No notification persmission granted');
     } else {
-      console.log('Successfully granted');
+      // console.log('Successfully granted');
       // document.getElementById('enable-notification').style.display =
       //   'inline-block';
       // configurePushSub();
@@ -132,7 +132,7 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
-      console.log('registerrrrrrrrrrr');
+      // console.log('registerrrrrrrrrrr');
 
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
@@ -178,7 +178,7 @@ function registerValidSW(swUrl, config) {
         };
       };
       if ('Notification' in window) {
-        console.log('Notification');
+        // console.log('Notification');
         for (let i = 0; i < 1; i++) {
           // console.log('-------enterrrr-------');
           document

@@ -997,3 +997,15 @@ button.serch_icn img {
   border-radius: 11px;
   color: #fff;
 }
+
+.container.cstm_wrp {
+  width: 50%;
+  background: antiquewhite;
+  padding: 50px;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.mrgn_btm {
+  margin-bottom: 10px;
+}

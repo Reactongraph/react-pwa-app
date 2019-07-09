@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from '../container/App';
 import Products from '../container/Products';
+// import Post from '../container/Post';
 import ProductDetails from '../container/ProductDetails';
 
 // Switch between one screen to another screen
