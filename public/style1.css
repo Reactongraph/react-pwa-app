@@ -1009,3 +1009,46 @@ button.serch_icn img {
 .mrgn_btm {
   margin-bottom: 10px;
 }
+
+#create-post {
+  width: 40%;
+  margin: 100px auto;
+  background: bisque;
+  padding: 14px 25px;
+}
+
+#player {
+  text-align: center;
+}
+
+canvas {
+  text-align: center;
+}
+
+#btn-center {
+  text-align: center;
+  margin: 8px 0px;
+}
+
+button#capture-btn {
+  background: brown;
+  color: #fff;
+  padding: 3px 15px;
+  border-radius: 6px;
+}
+
+#video-canvas {
+  display: none;
+}
+
+#create-post video,
+#create-post canvas {
+  width: 512px;
+  min-width: 100%;
+  display: none;
+  margin: auto;
+}
+
+#pick-image {
+  display: none !important;
+}

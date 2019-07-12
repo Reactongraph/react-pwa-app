@@ -9,7 +9,6 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
-
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -135,6 +134,8 @@ function registerValidSW(swUrl, config) {
       // console.log('registerrrrrrrrrrr');
 
       registration.onupdatefound = () => {
+        console.log('sssssssssssssssss');
+
         const installingWorker = registration.installing;
         if (installingWorker == null) {
           return;

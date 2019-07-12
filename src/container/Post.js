@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { writeData } from '../utils/commonHelper';
 
 class PostMessages extends Component {
   state = {
-    username: '',
-    comment: ''
+    username: 'Hello',
+    comment: 'Test User'
   };
 
   _handleChange = event => {
@@ -13,8 +14,50 @@ class PostMessages extends Component {
   };
 
   _handleSubmit = () => {
-    console.log('Submitttttt', this.state);
+    const { username, comment } = this.state;
+    if (username && comment) {
+      console.log('Submitttttt', this.state);
+      if ('serviceWorker' in navigator && 'SyncManager' in window) {
+        console.log('====Inside check====');
+        navigator.serviceWorker.ready.then(function(sw) {
+          console.log('====Inside check ready====');
+          let post = {
+            id: new Date().toISOString(),
+            user: username,
+            comment
+          };
+          writeData('sync-posts', post);
+          console.log('llllllllllll', sw);
+          sw.sync
+            .register('new-post')
+            .then(function(res) {
+              alert('Successfully registered data');
+            })
+            .catch(err => {
+              console.log('ssssssssss', err);
+            });
+          // .then(function() {
+          //   console.log('====Inside====');
+
+          //   return sw.sync.register('new-post');
+          // })
+          // .then(function() {
+          //   alert('Successfully registered data');
+          // })
+          // .catch(err => {
+          //   console.log('====Error====', err);
+          // });
+        });
+      } else {
+        alert(
+          'Hit Server api here if service worker or syncManager not support '
+        );
+      }
+    } else {
+      alert('Please fill valid data before post');
+    }
   };
+
   render() {
     let { username, comment } = this.state;
     return (
