@@ -14,6 +14,8 @@ export default function Home() {
             <h2>buy in group and take huge discount on amazing products</h2>
             {/* <button className="default_btn" type="button"> */}
             <Link to="/productList">EXPLORE DEALS</Link>
+            <Link to="/camera">Camera</Link>
+            <Link to="/post">Background Sync</Link>
             {/* </button> */}
             <button id="enable-notification" className="notify-btn">
               Enable notification
