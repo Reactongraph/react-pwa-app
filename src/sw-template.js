@@ -65,7 +65,8 @@ if ('function' === typeof importScripts) {
             });
         };
       };
-      alert('Successfully implemented background sync');
+      console.log('Successfully implemented BAckground sync');
+      // window.alert('Successfully implemented background sync');
 
       // event.waitUntill(
       //   readAllData('sync-posts').then(function(data) {

@@ -31,8 +31,8 @@ class PostMessages extends Component {
           sw.sync
             .register('new-post')
             .then(function(res) {
-              // alert('Successfully registered data');
-              console.log('');
+              alert('Successfully registered data');
+              // console.log('');
             })
             .catch(err => {
               console.log('Error', err);
