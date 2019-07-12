@@ -1011,10 +1011,10 @@ button.serch_icn img {
 }
 
 #create-post {
-  width: 40%;
-  margin: 100px auto;
+  width: 80%;
+  margin: 24px auto;
   background: bisque;
-  padding: 14px 25px;
+  padding: 14px 38px;
 }
 
 #player {
@@ -1030,7 +1030,7 @@ canvas {
   margin: 8px 0px;
 }
 
-button#capture-btn {
+#capture-btn {
   background: brown;
   color: #fff;
   padding: 3px 15px;
@@ -1040,10 +1040,9 @@ button#capture-btn {
 #video-canvas {
   display: none;
 }
-
 #create-post video,
 #create-post canvas {
-  width: 512px;
+  width: 110px;
   min-width: 100%;
   display: none;
   margin: auto;

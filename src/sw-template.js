@@ -45,9 +45,9 @@ if ('function' === typeof importScripts) {
     console.log('Workbox could not be loaded. No Offline support');
   }
   self.addEventListener('sync', function(event) {
-    console.log('[Service Worker] do Background syncing', event);
+    // console.log('[Service Worker] do Background syncing', event);
     if (event.tag === 'new-post') {
-      console.log('[Service Worker] syncing new post');
+      // console.log('[Service Worker] syncing new post');
       // console.log('llllllll', openDB('sync-posts'));
       var DBOpenRequest = indexedDB.open('MyTestDatabase');
       DBOpenRequest.onsuccess = function(e) {
@@ -56,7 +56,7 @@ if ('function' === typeof importScripts) {
         let store = tx.objectStore('sync-posts');
         let data = store.getAll();
         data.onsuccess = function(e) {
-          console.log('ddddddddddddddddd', data.result);
+          // console.log('ddddddddddddddddd', data.result);
           data.result.length &&
             data.result.map(res => {
               let tx = db.transaction(['sync-posts'], 'readwrite');
@@ -65,6 +65,8 @@ if ('function' === typeof importScripts) {
             });
         };
       };
+      alert('Successfully implemented background sync');
+
       // event.waitUntill(
       //   readAllData('sync-posts').then(function(data) {
       //     data.map(syncData => {

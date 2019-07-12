@@ -16,25 +16,26 @@ class PostMessages extends Component {
   _handleSubmit = () => {
     const { username, comment } = this.state;
     if (username && comment) {
-      console.log('Submitttttt', this.state);
+      // console.log('Submitttttt', this.state);
       if ('serviceWorker' in navigator && 'SyncManager' in window) {
-        console.log('====Inside check====');
+        // console.log('====Inside check====');
         navigator.serviceWorker.ready.then(function(sw) {
-          console.log('====Inside check ready====');
+          // console.log('====Inside check ready====');
           let post = {
             id: new Date().toISOString(),
             user: username,
             comment
           };
           writeData('sync-posts', post);
-          console.log('llllllllllll', sw);
+          // console.log('llllllllllll', sw);
           sw.sync
             .register('new-post')
             .then(function(res) {
-              alert('Successfully registered data');
+              // alert('Successfully registered data');
+              console.log('');
             })
             .catch(err => {
-              console.log('ssssssssss', err);
+              console.log('Error', err);
             });
           // .then(function() {
           //   console.log('====Inside====');
