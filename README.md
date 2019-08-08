@@ -1,5 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## About PWA
+  Progressive Web Apps provide an installable, app-like experience on desktop and mobile that are built and delivered directly via the web. They're web apps that are fast and reliable. And most  importantly, they're web apps that work in any browser. PWA apps provide offline supports as well.
+
+  ### Features of PWA
+
+  #### a. Fast & Reliable.
+  #### b. Responsive
+  #### c. Installable
+  #### d. Splash Screen
+  #### e. Highly engage-able
+
+For Configuration PWA
+
+1. Dependent libraries:
+
+  ## a) Workbox-build: 
+  Which is used to precaching assets and data.
+
 ## Available Scripts
 
 In the project directory, you can run:
